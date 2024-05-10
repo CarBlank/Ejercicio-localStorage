@@ -2,9 +2,12 @@ const yourName = document.getElementById('userName')
 const yourMail = document.getElementById('userMail')
 const yourMesage = document.getElementById('userMessage')
 const sendbtn = document.getElementById('btn')
+const form = document.querySelector('form')
+
+const userInfo = document.getElementById('content')
 
 /* guardar en localstorage */
-function onSubmit(event) {
+/* function onSubmit(event) {
     event.preventDefault()
     for(let i=0; i<localStorage.length; i++) {
         let key = localStorage.key(i);
@@ -16,6 +19,57 @@ function onSubmit(event) {
     console.log(result);
 }
 sendbtn.addEventListener('click' , onSubmit)
+
+ */
+
+function onSubmit(event) {
+    event.preventDefault() 
+    /* otra forma de escribirlo
+    const resultName = yourName.value 
+    const resultMail = yourMail.value 
+ */
+  /*  va dentro de stringify
+        const userData = {
+        yourName: yourName.value,
+        yourMail: yourMail.value,
+
+    }
+ */
+/*   otra forma de escribirlo:  
+    localStorage.setItem('userData' , JSON.stringify(userData))  */
+  /*   
+    if (yourName.value === '' || yourMail === '') {
+
+    }
+
+ */
+    saveDataStorage()
+    const userFromStorage = JSON.parse(localStorage.getItem('userData'))
+    
+    userInfo.innerHTML = `<p> Hola  ${userFromStorage.yourName} tu  correo es ${userFromStorage.yourMail}</p>`
+    console.log(userFromStorage);
+}
+
+
+function saveDataStorage() {
+    localStorage.setItem(
+        'userData' , 
+        JSON.stringify({
+            yourName: yourName.value,
+            yourMail: yourMail.value,
+        }
+    )) 
+
+}
+
+form.addEventListener('submit' , onSubmit)
+
+
+
+
+
+
+
 
 
 /* escribir datos */
