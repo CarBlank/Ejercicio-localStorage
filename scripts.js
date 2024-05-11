@@ -7,14 +7,16 @@ const form = document.querySelector('form')
 const userInfo = document.getElementById('content')
 
 /* guardar en localstorage */
+
 /* function onSubmit(event) {
     event.preventDefault()
+    let result = []
     for(let i=0; i<localStorage.length; i++) {
         let key = localStorage.key(i);
         console.log('esto es el bucle', `${key}: ${localStorage.getItem(key)}`);
     }
     //const result = yourName.value //mostrar valor 
-    const result = []
+    
     localStorage.setItem('Data' , result) 
     console.log(result);
 }
@@ -91,15 +93,3 @@ for(let i=0; i<localStorage.length; i++) {
 } */
 
 
-
-
-
-
-/* 
-
-function onSubmit(event) {
-    event.preventDefault()
-   
-    console.log('hola')
-   }
-    */
